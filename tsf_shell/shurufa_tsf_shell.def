@@ -1,0 +1,6 @@
+LIBRARY "shurufa_tsf_shell"
+EXPORTS
+    DllCanUnloadNow
+    DllGetClassObject
+    DllRegisterServer
+    DllUnregisterServer
