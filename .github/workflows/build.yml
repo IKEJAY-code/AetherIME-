@@ -1,0 +1,30 @@
+name: Build Windows DLL
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch: # 允许手动点击按钮触发
+
+jobs:
+  build-windows:
+    runs-on: windows-latest  # 使用 GitHub 提供的最新 Windows 环境
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Configure CMake
+      # 这里会自动寻找 tsf_shell 目录下的 CMakeLists.txt
+      # 并生成构建文件到 out/build 目录
+      run: cmake -B out/build -S tsf_shell -DCMAKE_BUILD_TYPE=Release
+
+    - name: Build
+      # 开始编译，生成 Release 版本的 DLL
+      run: cmake --build out/build --config Release
+
+    - name: Upload DLL Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: shurufa_dll  # 下载时的压缩包名字
+        # 自动把编译出来的 dll 找出来打包
+        path: out/build/**/Release/*.dll
