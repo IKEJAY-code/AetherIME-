@@ -10,6 +10,7 @@ add_library(shurufa_tsf_shell SHARED
   src/IpcClient.cpp
   src/Log.cpp
   src/Registry.cpp
+  src/TsfGuids.cpp
   src/TextService.cpp
   shurufa_tsf_shell.def
 )
@@ -26,7 +27,6 @@ if(MSVC)
 endif()
 
 target_link_libraries(shurufa_tsf_shell PRIVATE
-  msctf
   ole32
   advapi32
   uuid
