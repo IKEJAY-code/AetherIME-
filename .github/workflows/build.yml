@@ -16,7 +16,21 @@ jobs:
     - name: Configure CMake
       # 这里会自动寻找 tsf_shell 目录下的 CMakeLists.txt
       # 并生成构建文件到 out/build 目录
-      run: cmake -B out/build -S tsf_shell -DCMAKE_BUILD_TYPE=Release
+      shell: pwsh
+      run: |
+        $sdkRoot = "C:\Program Files (x86)\Windows Kits\10\Lib"
+        $candidates = Get-ChildItem $sdkRoot -Directory | ForEach-Object {
+          $lib = Join-Path $_.FullName "um\x64\msctf.lib"
+          if (Test-Path $lib) { $_.Name }
+        } | Sort-Object -Descending
+        if (-not $candidates) {
+          Write-Error "msctf.lib not found under Windows SDK. Install Desktop C++ + Windows 10/11 SDK."
+          exit 1
+        }
+        $sdkVer = $candidates[0]
+        "SDK_VER=$sdkVer" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+        Write-Host "Using Windows SDK $sdkVer"
+        cmake -B out/build -S tsf_shell -G "Visual Studio 17 2022" -A x64 -DCMAKE_SYSTEM_VERSION=$sdkVer
 
     - name: Build
       # 开始编译，生成 Release 版本的 DLL
