@@ -7,6 +7,9 @@ AetherIME is a Linux AI input method prototype that combines:
 - Local-first prediction backends (`heuristic`, `ollama`, `llama.cpp`)
 - FIM-friendly request format (`prefix` + `suffix`)
 
+![Architecture](docs/Architecture.png)
+
+
 ## Highlights
 
 - Fcitx5 addon with live preedit/candidates/status
