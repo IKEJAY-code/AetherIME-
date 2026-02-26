@@ -1,0 +1,30 @@
+[server]
+socket_path = "/tmp/aetherime.sock"
+request_timeout_ms = 5000
+
+[predict]
+enable = true
+trigger_delay_ms = 35
+max_tokens = 12
+cache_capacity = 512
+
+[model]
+backend = "ollama"
+mode = "fim"
+model_path = ""
+ollama_host = "http://127.0.0.1:11434"
+ollama_model = "qwen2.5:3b"
+ctx_len = 1024
+temperature = 0.2
+top_p = 0.9
+
+[privacy]
+local_only = true
+cloud_endpoint = ""
+
+[ui]
+theme = "deep-ocean"
+
+[hotkey]
+accept = "Tab"
+toggle_predict = "Ctrl+;"

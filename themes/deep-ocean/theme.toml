@@ -1,0 +1,19 @@
+name = "Deep Ocean"
+variant = "dark"
+
+[window]
+background = "#111827"
+foreground = "#E5E7EB"
+border = "#374151"
+radius = 12
+shadow = true
+
+[candidate]
+active_bg = "#2563EB"
+active_fg = "#FFFFFF"
+inactive_bg = "#1F2937"
+inactive_fg = "#D1D5DB"
+
+[ghost]
+text = "#93C5FD"
+alpha = 0.62

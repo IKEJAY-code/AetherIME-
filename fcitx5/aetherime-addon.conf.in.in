@@ -1,0 +1,13 @@
+[Addon]
+Name=AetherIME
+Category=InputMethod
+Version=@PROJECT_VERSION@
+Library=libaetherime
+Type=SharedLibrary
+OnDemand=True
+Configurable=True
+
+[Addon/OptionalDependencies]
+0=quickphrase
+1=fullwidth
+2=chttrans

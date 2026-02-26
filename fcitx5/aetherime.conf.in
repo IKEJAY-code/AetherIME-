@@ -1,0 +1,7 @@
+[InputMethod]
+Name=AetherIME
+Icon=input-keyboard
+Label=A
+LangCode=zh_CN
+Addon=aetherime
+Configurable=True

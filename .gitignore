@@ -1,6 +1,27 @@
-target/
-out/
-build/
-*.dll
-*.exe
+# Rust
+/target
+**/*.rs.bk
+Cargo.lock
+
+# C/C++
+/build
+*.o
+*.so
+*.a
+
+# Local runtime
+*.sock
+*.log
+.cache/
+.tmp/
+
+# Editor / OS
+.idea/
 .vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Local build directories
+/build-*
+/.vs/

@@ -1,0 +1,19 @@
+name = "Mist Light"
+variant = "light"
+
+[window]
+background = "#F9FAFB"
+foreground = "#111827"
+border = "#D1D5DB"
+radius = 12
+shadow = true
+
+[candidate]
+active_bg = "#2563EB"
+active_fg = "#FFFFFF"
+inactive_bg = "#FFFFFF"
+inactive_fg = "#1F2937"
+
+[ghost]
+text = "#2563EB"
+alpha = 0.55
